@@ -1,7 +1,8 @@
 import unittest
 from dataclasses import dataclass
+
+from .lexer import Lexer
 from tokens import token
-import lexer
 
 
 class TestLexer(unittest.TestCase):
@@ -39,7 +40,7 @@ class TestLexer(unittest.TestCase):
         ( ) { } ; = == , func void instance C_INFO it_is_identifier 1234 TRUE FALSE \"string\" if //comment
         """
 
-        l = lexer.Lexer(script)
+        l = Lexer(script)
 
         for tc in test_cases:
 
@@ -66,7 +67,7 @@ class TestLexer(unittest.TestCase):
         !
         """
 
-        l = lexer.Lexer(script)
+        l = Lexer(script)
 
         # WHEN
         tok = l.next_token()
